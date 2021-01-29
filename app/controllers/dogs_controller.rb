@@ -5,12 +5,12 @@ class DogsController < ApplicationController
   def index
     @dogs = Dog.all
 
-    render json: @dogs
+    render json: @dogs.to_json(include: :people)
   end
 
   # GET /dogs/1
   def show
-    render json: @dog
+    render json: @dog.to_json(include: :people)
   end
 
   # POST /dogs
